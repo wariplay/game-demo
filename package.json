@@ -1,0 +1,49 @@
+{
+  "name": "game-demo",
+  "version": "0.0.1",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "start:slot": "parcel --no-cache src/slot/index.html src/slot/assets/*",
+    "start:wheel": "parcel --no-cache src/wheel/index.html src/wheel/assets/*",
+    "build:slot": "NODE_ENV=production parcel build src/slot/index.html src/slot/assets/* --no-source-maps --public-url . --dist-dir dist/slot",
+    "build:wheel": "NODE_ENV=production parcel build src/wheel/index.html src/wheel/assets/* --no-source-maps --public-url . --dist-dir dist/wheel",
+    "prebuild": "rm -rf dist",
+    "build": "npm run build:slot && npm run build:wheel"
+  },
+  "browserslist": "> 0.5% in TZ, > 0.5% in GH, > 0.5% in RW, not dead",
+  "dependencies": {
+    "@pixi/app": "^6.4.2",
+    "@pixi/constants": "^6.4.2",
+    "@pixi/core": "^6.4.2",
+    "@pixi/display": "^6.4.2",
+    "@pixi/filter-blur": "^6.4.2",
+    "@pixi/graphics": "^6.4.2",
+    "@pixi/interaction": "^6.4.2",
+    "@pixi/loaders": "^6.4.2",
+    "@pixi/math": "^6.4.2",
+    "@pixi/settings": "^6.4.2",
+    "@pixi/sprite": "^6.4.2",
+    "@pixi/text": "^6.4.2",
+    "@pixi/ticker": "^6.4.2",
+    "@pixi/utils": "^6.4.2",
+    "gsap": "^3.10.4"
+  },
+  "devDependencies": {
+    "@parcel/compressor-brotli": "^2.6.2",
+    "@parcel/compressor-gzip": "^2.6.2",
+    "@parcel/reporter-bundle-analyzer": "^2.6.2",
+    "@parcel/transformer-typescript-tsc": "^2.6.2",
+    "@tsconfig/node16": "^1.0.3",
+    "@typescript-eslint/eslint-plugin": "^5.30.6",
+    "@typescript-eslint/parser": "^5.30.6",
+    "eslint": "^8.19.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
+    "parcel": "^2.6.2",
+    "prettier": "^2.7.1",
+    "querystring-es3": "^0.2.1",
+    "typescript": "^4.7.4"
+  }
+}
