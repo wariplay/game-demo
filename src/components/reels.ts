@@ -80,7 +80,7 @@ export function createReels(app: PIXI.Application, params: Params) {
   }
 
   // Listen for animate update.
-  app.ticker.add((delta) => {
+  app.ticker.add(() => {
     // Update the slots.
     for (let i = 0; i < reels.length; i++) {
       const r = reels[i];
@@ -103,10 +103,7 @@ export function createReels(app: PIXI.Application, params: Params) {
         }
       }
     }
-  });
 
-  // Listen for animate update.
-  app.ticker.add((delta) => {
     const now = Date.now();
     const remove = [];
     for (let i = 0; i < tweening.length; i++) {

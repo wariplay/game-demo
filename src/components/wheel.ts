@@ -51,7 +51,8 @@ export function createWheel(app: PIXI.Application, params: Params) {
     start: (position: number) => {
       container.rotation = 0;
       const rotation = Math.PI * 2 + finalPoisition(position);
-      const wheel = gsap.to(container, 5, {
+      const wheel = gsap.to(container, {
+        duration: 5,
         rotation: `+=${rotation}`,
         ease: gsap.parseEase('power2'),
       });
