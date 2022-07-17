@@ -4,7 +4,11 @@ import { createWheel } from '../components/wheel';
 import * as PIXI from '../pixi';
 
 const app = new PIXI.Application({ backgroundColor: 0x1099bb });
-app.loader.add('play', 'assets/play.svg').add('stop', 'assets/stop.svg').load(onLoaded);
+app.loader
+  .add('play', 'assets/play.svg')
+  .add('stop', 'assets/stop.svg')
+  .add('arrow', 'assets/arrow.svg')
+  .load(onLoaded);
 document.body.appendChild(app.view);
 
 function onLoaded() {

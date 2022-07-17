@@ -1,6 +1,7 @@
 import gsap from 'gsap';
 
 import * as PIXI from '../pixi';
+import { createIcon } from './icon';
 
 interface Params {
   x: number;
@@ -38,9 +39,14 @@ export function createWheel(app: PIXI.Application, params: Params) {
     createSectorText(sector);
   }
 
+  const arrowIcon = createIcon('arrow', { width: 20, height: 20, x: -10, y: -size - 10 });
+
+  const wheelContainer = new PIXI.Container();
+  wheelContainer.addChild(sectionGraphic, textContainer);
+
   const container = new PIXI.Container();
   container.position.set(x, y);
-  container.addChild(sectionGraphic, textContainer);
+  container.addChild(wheelContainer, arrowIcon);
 
   function finalPoisition(position = 0) {
     return (sections - position) * radiansPerSector;
@@ -49,9 +55,9 @@ export function createWheel(app: PIXI.Application, params: Params) {
   return {
     container,
     start: (position: number) => {
-      container.rotation = 0;
+      wheelContainer.rotation = 0;
       const rotation = Math.PI * 2 + finalPoisition(position);
-      const wheel = gsap.to(container, {
+      const wheel = gsap.to(wheelContainer, {
         duration: 5,
         rotation: `+=${rotation}`,
         ease: gsap.parseEase('power2'),
