@@ -1,4 +1,4 @@
-import gsap from 'gsap';
+import { gsap } from 'gsap/gsap-core';
 
 import * as PIXI from '../pixi';
 import { createIcon } from './icon';
